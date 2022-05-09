@@ -59,3 +59,21 @@ If the above doesn't work, try:
 minikube ip
 ```
 to get the IP address of the Minikube node
+
+### Horizontal Pod Autoscaler
+Enable Metrics Server in Minikube
+```bash
+minikube addons enable metrics-server
+```
+Run and wait for the deployment to be ready:
+```bash
+kubectl get deployment metrics-server -n kube-system
+```
+Then create the autoscaler by applying the autoscale.yaml
+```bash
+kubectl apply -f yaml/autoscale.yaml
+```
+Query the metrics
+```bash
+kubectl get hpa
+```
