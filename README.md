@@ -77,3 +77,30 @@ Query the metrics
 ```bash
 kubectl get hpa
 ```
+
+### Stress tests
+Run the bash script that sends requests to the app
+```bash
+/bin/bash request.sh
+```
+
+For monitoring, Minikube's built-in dashboard is useful:
+```bash
+minikube dashboard
+```
+
+### Cleanup
+Destroy the resources:
+```bash
+kubectl delete -f yaml
+```
+
+Recreate all in one command:
+```bash
+kubectl apply -f yaml
+```
+
+If you want to destroy the VM run
+```bash
+minikube delete
+```
